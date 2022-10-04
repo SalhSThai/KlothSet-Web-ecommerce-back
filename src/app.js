@@ -7,7 +7,8 @@ const cors = require('cors');
 const errFn = require('./middlewares/error');
 const notFound = require('./middlewares/notFound')
 const authRoute = require('./routes/authRoute');
-const { sequelize } = require('./models');
+const { sequelize,Product } = require('./models');
+sequelize.sync();
 require('dotenv').config()
 const app = express();
 const PORT = process.env.PORT;

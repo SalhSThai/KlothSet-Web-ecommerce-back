@@ -2,15 +2,16 @@ const db = require('../models/');
 const {sequelize,User} = require('../models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const {JWT_EXPIRES,JWT_SECRET_KEY} = process.env
 //=====================================================Imported Zone
 
 //=====================================================register Zone
 const register = async (req, res, next) => {
     try {
-        const { username, password,cpassword, email,phonenumber,firstName,lastName } = req.body
+        const { username, password,cpassword, email,phonenumber,firstName,lastName,role = 1,sellerId } = req.body
         password!=cpassword ? res.json({ "password": "unmatch"}):null;
         const hashed = await bcrypt.hash(password, 13);
-        await User.create({username,email,password:hashed,phonenumber,firstName,lastName});
+        await User.create({username,email,password:hashed,phonenumber,firstName,lastName,role});
 
         res.status(201).json({ "status": "success" })
     } catch (err) {
@@ -57,14 +58,27 @@ const login = async (req, res, next) => {
         const data = await User.findOne({where:{[db.Sequelize.Op.or]:[{username},{email:username}]}});
         !data ? res.status(400).json({message:'invalid username or password'}):null;
         const payload = {
-            username,
             id: data.id,
-            email:data.email
+            username,
+            email:data.email,
+            phone:data.phone,
+            firstName:data.firstName,
+            lastName:data.lastName,
+            profileImage:data.profileImage
+
         }
         const result = await bcrypt.compare(password, data.password);
         !result ? res.status(201).json({ "login_status": "invalid username or password"  }) :null ;
-        const token = jwt.sign(payload,String(process.env.JWT_SECRET_KEY ?? 'yek'),{algorithm:'HS384',expiresIn:'30d'});
+        const token = jwt.sign(payload,String(process.env.JWT_SECRET_KEY ?? 'key'),{algorithm:'HS384',expiresIn:JWT_EXPIRES ??'7d'});
         res.status(201).json({ 'status':'success',token ,data});
+    } catch (err) {
+        next(err);
+    }
+}
+const remember = async (req, res, next) => {
+    try {
+        const user = req.user
+        res.json({user})
     } catch (err) {
         next(err);
     }
@@ -72,4 +86,4 @@ const login = async (req, res, next) => {
 
 
 //=====================================================Exported Zone
-module.exports = { login, register, changePassword, registerDelete ,forgetPassword};
+module.exports = { login, register, changePassword, registerDelete ,forgetPassword,remember};
