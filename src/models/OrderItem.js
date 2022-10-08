@@ -17,13 +17,7 @@ module.exports = (sequelize, DataTypes) => {
               notEmpty: true
             }
           },
-          discount: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {
-              notEmpty: true
-            }
-          },
+          discount:  DataTypes.DECIMAL,
         
       },
       { underscored: true }
@@ -40,14 +34,14 @@ module.exports = (sequelize, DataTypes) => {
         });
         OrderItem.belongsTo(db.Transaction, {
             foreignKey: {
-                name: 'TransactionId',
+                name: 'transactionId',
                 allowNull: false
             },
             onDelete: 'CASCADE',
         });
         OrderItem.belongsTo(db.Product, {
             foreignKey: {
-                name: 'ProductId',
+                name: 'productId',
                 allowNull: false
             },
             onDelete: 'CASCADE',

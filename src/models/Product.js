@@ -10,37 +10,11 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true
                 }
             },
-            price: {
-                type: DataTypes.DECIMAL,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            size: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            amount: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            color: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: true
-                }
-            },
-            brand_name: DataTypes.STRING,
+            brand_name:{
+                type: DataTypes.STRING, 
+                defaultValue: "Kloth"
+        },
             description: DataTypes.STRING,
-            discount: DataTypes.INTEGER,
             gender: {
                 type: DataTypes.ENUM("MALE", "FEMALE", "N/A"),
                 defaultValue: "N/A"
@@ -62,9 +36,9 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE',
         });
 
-        Product.belongsTo(db.Category, {
+        Product.hasMany(db.Category, {
             foreignKey: {
-                name: 'categoryId',
+                name: 'productId',
                 allowNull: false
             },
             onDelete: 'CASCADE',

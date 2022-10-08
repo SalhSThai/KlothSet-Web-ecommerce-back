@@ -1,4 +1,6 @@
-const { login,register, changePassword, registerDelete ,forgetPassword,remember} = require('../controller/authControlLogic')
+const { login,register, changePassword, registerDelete ,forgetPassword,remember} = require('../controller/authControlLogic');
+const {  AuthShopInfo ,AuthShopPath} = require('../controller/authShopControlLogic')
+
 
 const express = require('express');
 const authenticate = require('../middlewares/authenticate');
@@ -11,5 +13,8 @@ authRoute.post('/remember',authenticate, remember);
 authRoute.post('/changePassword',changePassword);
 authRoute.post('/forgetPassword',forgetPassword);
 authRoute.post('/registerDelete',registerDelete);
+
+authRoute.post('/fetchAuthShop/:userId',authenticate,AuthShopInfo);
+authRoute.post('/fetchAuthPath/:userId',authenticate,AuthShopPath);
 
 module.exports = authRoute;

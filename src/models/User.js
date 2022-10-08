@@ -18,6 +18,12 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true
         }
       },
+      shopName: {
+        type: DataTypes.STRING,
+        validate: {
+          notEmpty: true
+        }
+      },
       firstName: {
         type: DataTypes.STRING,
       },
@@ -40,9 +46,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       profileImage: DataTypes.STRING,
-      shopName: {
-        type: DataTypes.STRING,
-      }
       
     },
     { underscored: true }
@@ -54,6 +57,13 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(db.Address, {
       foreignKey: {
         name: 'userId',
+        allowNull: false
+      },
+      onDelete: 'CASCADE',
+    });
+    User.hasMany(db.ShopCarousal, {
+      foreignKey: {
+        name: 'shopId',
         allowNull: false
       },
       onDelete: 'CASCADE',
@@ -84,6 +94,20 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(db.Transaction, {
       foreignKey: {
         name: 'sellerId',
+        allowNull: false
+      },
+      onDelete: 'CASCADE', 
+    });
+    User.hasOne(db.ShopPath, {
+      foreignKey: {
+        name: 'userId',
+        allowNull: false
+      },
+      onDelete: 'CASCADE',
+    }); 
+    User.hasMany(db.Category, {
+      foreignKey: {
+        name: 'shopId',
         allowNull: false
       },
       onDelete: 'CASCADE', 

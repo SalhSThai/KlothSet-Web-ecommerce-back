@@ -17,13 +17,8 @@ module.exports = (sequelize, DataTypes) => {
               notEmpty: true
             }
           },
-          discount: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
-            validate: {
-              notEmpty: true
-            }
-          },
+          discount:DataTypes.DECIMAL,
+          
         
       },
       { underscored: true }
