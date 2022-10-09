@@ -7,20 +7,22 @@ const bcrypt = require('bcryptjs');
 const setDefault = async (req, res, next) => {
     try {
         await userMock();
+        await carousalMock();
         await orderMock();
         await addressMock();
         await productMock();
         await categoryMock();
+
+
         await cartMock();
         await urlImageMock();
         await transactionMock();
         await orderItemMock();
         await shopMock();
         await itemDetailMock();
-        await carousalMock();
 
         res.status(201).json({ "status": "success" })
-    } catch (err) {
+    } catch (err) { 
         next(err);
     }
 }

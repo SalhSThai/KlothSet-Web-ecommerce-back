@@ -10,12 +10,6 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true
         }
       },
-      subCategory: {
-        type: DataTypes.STRING,
-        validate: {
-          notEmpty: true
-        }
-      },
 
     },
     { underscored: true }
@@ -24,11 +18,9 @@ module.exports = (sequelize, DataTypes) => {
 
 
   Category.associate = db => {
-    Category.belongsTo(db.Product, {
-      foreignKey: {
-        name: 'productId',
-        allowNull: false
-      },
+    Category.belongsToMany(db.Product, {
+      foreignKey: "categoryId",
+      through: db.ProductCategory,
       onDelete: 'CASCADE',
     });
 

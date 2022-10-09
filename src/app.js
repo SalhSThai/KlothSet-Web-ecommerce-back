@@ -11,7 +11,12 @@ const { sequelize,Product } = require('./models');
 const Sequelize = require('./models');
 // Sequelize.sequelize.sync({ force: true }) ;
 // Sequelize.sequelize.sync({ alter: true }) ;
-// Sequelize.ShopCarousal.sync({ alter: true });
+// Sequelize.Product.sync({ alter: true });
+// Sequelize.User.sync({ alter: true });
+
+// Sequelize.Category.sync({ alter: true });
+// Sequelize.ProductCategory.sync({ alter: true });
+
 const defaultRoute = require('./routes/defaultRoute');
 const uploadRoute = require('./routes/productRoute');
 const dataRoute = require('./routes/dataRoute');

@@ -5,15 +5,16 @@ module.exports = (sequelize, DataTypes) => {
         {
             productName: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                // allowNull: false,
                 validate: {
                     notEmpty: true
                 }
             },
-            brand_name:{
-                type: DataTypes.STRING, 
+            brandName: {
+                type: DataTypes.STRING,
                 defaultValue: "Kloth"
-        },
+            }, 
+            productImage:  DataTypes.STRING ,
             description: DataTypes.STRING,
             gender: {
                 type: DataTypes.ENUM("MALE", "FEMALE", "N/A"),
@@ -36,11 +37,9 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE',
         });
 
-        Product.hasMany(db.Category, {
-            foreignKey: {
-                name: 'productId',
-                allowNull: false
-            },
+        Product.belongsToMany(db.Category, { 
+            foreignKey: "productId",
+            through:db.ProductCategory,
             onDelete: 'CASCADE',
         });
 

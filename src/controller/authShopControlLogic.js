@@ -1,5 +1,5 @@
 const db = require('../models/');
-const { sequelize, User, ShopPath ,Product} = require('../models/index');
+const { sequelize, User, ShopPath ,Product,Category} = require('../models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_EXPIRES, JWT_SECRET_KEY } = process.env
@@ -23,10 +23,10 @@ const AuthShopInfo = async (req, res, next) => {
         const {userId} = req.params;
         const data = await User.findOne({
                 where:{id:userId},
-                include:[ShopPath,{model:Product}]
+                include:[ShopPath,{model:Product,include:[{model:Category,through:{attributes:[]}}]},Category]
                 });
 
-        res.status(201).json({ data })
+        res.status(201).json( data )
     } catch (err) {
         next(err);
     }
