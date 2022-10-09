@@ -4,7 +4,7 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('categories', [{
       
-      categories: 'T-shirt',
+      category_name: 'T-shirt',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"
@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       
-      categories: 'Dresses',
+      category_name: 'Dresses',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       
-      categories: 'Pants',
+      category_name: 'Pants',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"
@@ -28,7 +28,7 @@ module.exports = {
     },
     {
       
-      categories: 'Skirts',
+      category_name: 'Skirts',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"
@@ -36,7 +36,7 @@ module.exports = {
     },
     {
       
-      categories: 'Jeans',
+      category_name: 'Jeans',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"
@@ -44,7 +44,7 @@ module.exports = {
     },
     {
       
-      categories: 'ActiveWear',
+      category_name: 'ActiveWear',
       created_at: new Date(),
       updated_at: new Date(),
       shop_id:"2"

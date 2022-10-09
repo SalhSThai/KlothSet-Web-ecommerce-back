@@ -8,10 +8,10 @@ const { JWT_EXPIRES, JWT_SECRET_KEY } = process.env
 //=====================================================register Zone
 const register = async (req, res, next) => {
     try {
-        const { username, password, cpassword, email, phonenumber, firstName, lastName, role = 1, sellerId } = req.body
+        const { username, password, cpassword, email, phonenumber, firstName, lastName, role = 1, shopName,profileImage } = req.body
         password != cpassword ? res.json({ "password": "unmatch" }) : null;
         const hashed = await bcrypt.hash(password, 13);
-        await User.create({ username, email, password: hashed, phonenumber, firstName, lastName, role ,sellerId });
+        await User.create({ username, email, password: hashed, phonenumber, firstName, lastName, role ,shopName,profileImage });
 
         res.status(201).json({ "status": "success" })
     } catch (err) {
@@ -77,7 +77,7 @@ const login = async (req, res, next) => {
         const result = await bcrypt.compare(password, data.password);
         !result ? res.status(201).json({ "login_status": "invalid username or password" }) : null;
         const token = jwt.sign(payload, String(process.env.JWT_SECRET_KEY ?? 'key'), { algorithm: 'HS384', expiresIn: JWT_EXPIRES ?? '7d' });
-        res.status(201).json({ 'status': 'success', token, data });
+        res.status(201).json({ 'status': 'success', token, user:payload });
     } catch (err) {
         next(err);
     }

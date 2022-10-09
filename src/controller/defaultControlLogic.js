@@ -12,12 +12,12 @@ const setDefault = async (req, res, next) => {
         await addressMock();
         await productMock();
         await categoryMock();
-
-
         await cartMock();
         await urlImageMock();
+
         await transactionMock();
         await orderItemMock();
+        
         await shopMock();
         await itemDetailMock();
 
