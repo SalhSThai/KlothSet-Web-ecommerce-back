@@ -34,14 +34,19 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'CASCADE',
         });
 
-        Cart.belongsTo(db.Product, {
+        Cart.belongsTo(db.ItemDetail, {
             foreignKey: {
-                name: 'productId',
+                name: 'itemId',
                 allowNull: false
             },
             onDelete: 'CASCADE',
         });
+
+        
+
     }
   
     return Cart;
   };
+
+  

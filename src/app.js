@@ -14,9 +14,10 @@ const Sequelize = require('./models');
 // Sequelize.sequelize.sync({ alter: true }) ;
 
 const defaultRoute = require('./routes/defaultRoute');
-const uploadRoute = require('./routes/productRoute');
+// const uploadRoute = require('./routes/productRoute');
 const dataRoute = require('./routes/dataRoute');
 const productRoute = require('./routes/productRoute');
+const cartRoute = require('./routes/cartRoute');
 // const db = require('./models');
 require('dotenv').config()
 const app = express();
@@ -34,6 +35,8 @@ app.use('/auth', authRoute)
 app.use('/data',dataRoute)
 app.use('/default',defaultRoute)
 app.use('/product',productRoute)
+app.use('/cart',cartRoute)
+
 //=====================================================Express Zone
 //=====================================================Throwing Zone
 app.use(notFound);

@@ -85,7 +85,13 @@ const login = async (req, res, next) => {
 const remember = async (req, res, next) => {
     try {
         const user = req.user
-        res.json({ user })
+        const data = await User.findOne({
+            where: { id:user.id },
+            attributes: { exclude: 'userId' },
+            include:{ model: ShopPath}
+            
+        });
+        res.json( data )
     } catch (err) {
         next(err);
     }

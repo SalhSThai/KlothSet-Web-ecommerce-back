@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             productName: {
                 type: DataTypes.STRING,
-                // allowNull: false,
+                allowNull: false,
                 validate: {
                     notEmpty: true
                 }
@@ -13,6 +13,21 @@ module.exports = (sequelize, DataTypes) => {
             brandName: {
                 type: DataTypes.STRING,
                 defaultValue: "Kloth"
+            }, 
+            price: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            }, 
+            star: {
+                type: DataTypes.DECIMAL(5, 1),
+                allowNull: false,
+                defaultValue:5,
+                validate: {
+                    notEmpty: true
+                }
             }, 
             productImage:  DataTypes.STRING ,
             description: DataTypes.STRING,
@@ -50,13 +65,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             onDelete: 'CASCADE',
         });
-        Product.hasMany(db.Cart, {
-            foreignKey: {
-                name: 'productId',
-                allowNull: false
-            },
-            onDelete: 'CASCADE',
-        });
+        
         Product.hasMany(db.UrlImage, {
             foreignKey: {
                 name: 'productId',

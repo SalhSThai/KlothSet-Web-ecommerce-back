@@ -9,7 +9,8 @@ module.exports = {
       created_at: new Date(),
       updated_at: new Date(),
       user_id:3,
-      product_id:1
+      item_id:1
+
 
     },
     {
@@ -19,7 +20,8 @@ module.exports = {
       created_at: new Date(),
       updated_at: new Date(),
       user_id:3,
-      product_id:2
+      item_id:2
+
 
     },
     {
@@ -28,7 +30,7 @@ module.exports = {
       created_at: new Date(),
       updated_at: new Date(),
       user_id:3,
-      product_id:3
+      item_id:3
 
     }], {});
   },

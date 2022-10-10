@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       role: {
         type: DataTypes.DECIMAL,
         allowNull: false,
+        defaultValue:"1",
         validate: {
           notEmpty: false
         }
@@ -69,14 +70,11 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE',
     });
 
-
-    User.hasMany(db.Cart, {
-      foreignKey: {
-        name: 'userId',
-        allowNull: false 
-      },
+    User.belongsToMany(db.ItemDetail, { 
+      foreignKey: "userId",
+      through:db.Cart,
       onDelete: 'CASCADE',
-    });
+  });
     User.hasMany(db.Order, {
       foreignKey: {
         name: 'buyerId',

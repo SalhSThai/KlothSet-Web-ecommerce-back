@@ -32,6 +32,13 @@ module.exports = (sequelize, DataTypes) => {
                     notEmpty: true
                 }
             },
+            subName: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notEmpty: true
+                }
+            },
             discount: DataTypes.INTEGER,
 
         },
@@ -49,7 +56,12 @@ module.exports = (sequelize, DataTypes) => {
             },
             onDelete: 'CASCADE',
         });
-
+        
+        ItemDetail.belongsToMany(db.User, { 
+            foreignKey: "itemId",
+            through:db.Cart,
+            onDelete: 'CASCADE',
+        });
 
     }
 

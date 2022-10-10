@@ -1,5 +1,5 @@
 const db = require('../models/');
-const { sequelize, User, ShopPath } = require('../models/index');
+const { sequelize, User, ShopPath,Product ,Category,UrlImage,ItemDetail} = require('../models/index');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_EXPIRES, JWT_SECRET_KEY } = process.env
@@ -58,7 +58,23 @@ const fetchShopPath = async (req,res,next) => {
         
     }
 }
+const fetchProductData = async (req,res,next) => {
+    try {
+        const data = await Product.findAll({
+            include: [
+                { model: Category, through: { attributes: [] }},
+                UrlImage,
+                ItemDetail,]
+                 
+            });
+
+
+        res.status(200).json(data)
+    } catch (error) {
+        next(error)
+    }
+}
 
 
 //=====================================================Exported Zone
-module.exports = { fetchPath,fetchShopData,fetchCategoryData,fetchShopPath};
+module.exports = { fetchPath,fetchShopData,fetchCategoryData,fetchShopPath,fetchProductData};

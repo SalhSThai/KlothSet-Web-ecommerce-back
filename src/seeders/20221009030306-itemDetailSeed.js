@@ -8,6 +8,7 @@ module.exports = {
       size:"xs",
       amount:5,
       color:"white",
+      sub_name:"white1",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:1
@@ -19,6 +20,7 @@ module.exports = {
       size:"s",
       amount:5,
       color:"red",
+      sub_name:"red1",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:1
@@ -29,6 +31,7 @@ module.exports = {
       size:"xs",
       amount:5,
       color:"blue",
+      sub_name:"blue1",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:1
@@ -39,6 +42,7 @@ module.exports = {
       size:"xs",
       amount:5,
       color:"white",
+      sub_name:"white2",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:2
@@ -50,6 +54,7 @@ module.exports = {
       size:"xs",
       amount:5,
       color:"white",
+      sub_name:"white3",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:3
@@ -60,6 +65,7 @@ module.exports = {
       size:"xs",
       amount:5,
       color:"black",
+      sub_name:"white1",
       created_at: new Date(),
       updated_at: new Date(),
       product_id:1
