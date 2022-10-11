@@ -7,7 +7,7 @@ module.exports = {
       date: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
-      buyer_id:"3"
+      buyer_id:"2"
 
     },
     {
@@ -15,7 +15,7 @@ module.exports = {
       date: new Date(),
       created_at: new Date(),
       updated_at: new Date(),
-      buyer_id:"3"
+      buyer_id:"2"
 
     },
     {

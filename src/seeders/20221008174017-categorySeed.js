@@ -7,7 +7,7 @@ module.exports = {
       category_name: 'T-shirt',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"4"
 
     },
     {
@@ -15,7 +15,7 @@ module.exports = {
       category_name: 'Dresses',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"4"
 
     },
     {
@@ -23,7 +23,7 @@ module.exports = {
       category_name: 'Pants',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"4"
 
     },
     {
@@ -31,7 +31,7 @@ module.exports = {
       category_name: 'Skirts',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"5"
 
     },
     {
@@ -39,7 +39,7 @@ module.exports = {
       category_name: 'Jeans',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"5"
 
     },
     {
@@ -47,7 +47,7 @@ module.exports = {
       category_name: 'ActiveWear',
       created_at: new Date(),
       updated_at: new Date(),
-      shop_id:"2"
+      shop_id:"6"
 
     }], {});
   },

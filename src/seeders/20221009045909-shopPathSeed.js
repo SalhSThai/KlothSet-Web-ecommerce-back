@@ -7,7 +7,7 @@ module.exports = {
       shop_path: "KlothShop",
       created_at: new Date(),
       updated_at: new Date(),
-      user_id:"1"
+      user_id:"6"
 
     },
     {
@@ -15,7 +15,7 @@ module.exports = {
       shop_path: "SHEIN",
       created_at: new Date(),
       updated_at: new Date(),
-      user_id:"2"
+      user_id:"5"
 
     },
     {

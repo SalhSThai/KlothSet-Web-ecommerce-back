@@ -7,7 +7,7 @@ module.exports = {
       address: "585 Hampton Meadows Bedford 01730",
       created_at: new Date(),
       updated_at: new Date(),
-      user_id:"3"
+      user_id:"2"
 
     },
     {

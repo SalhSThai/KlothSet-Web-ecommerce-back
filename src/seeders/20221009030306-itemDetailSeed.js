@@ -70,7 +70,76 @@ module.exports = {
       updated_at: new Date(),
       product_id:1
 
-    }], {});
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:4
+
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:5
+
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:6
+
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:7
+
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:8
+
+    },
+    {
+      price:160,
+      size:"xs",
+      amount:5,
+      color:"white1",
+      sub_name:"white1",
+      created_at: new Date(),
+      updated_at: new Date(),
+      product_id:9
+
+    }
+  
+  
+  ], {});
   },
 
   async down (queryInterface, Sequelize) {
